@@ -1,22 +1,25 @@
 # Pardot-API
 PHP package to interact with the Pardot API
 
-[![Latest Stable Version](https://poser.pugx.org/cyber-duck/pardot-api/v/stable)](https://packagist.org/packages/cyber-duck/pardot-api)
-[![Latest Unstable Version](https://poser.pugx.org/cyber-duck/pardot-api/v/unstable)](https://packagist.org/packages/cyber-duck/pardot-api)
-[![Total Downloads](https://poser.pugx.org/cyber-duck/pardot-api/downloads)](https://packagist.org/packages/cyber-duck/pardot-api)
-[![License](https://poser.pugx.org/cyber-duck/pardot-api/license)](https://packagist.org/packages/cyber-duck/pardot-api)
+[![Latest Stable Version](https://poser.pugx.org/colorado-public-radio/pardot-api/v/stable)](https://packagist.org/packages/colorado-public-radio/pardot-api)
+[![Latest Unstable Version](https://poser.pugx.org/colorado-public-radio/pardot-api/v/unstable)](https://packagist.org/packages/cyber-duck/pardot-api)
+[![Total Downloads](https://poser.pugx.org/colorado-public-radio/pardot-api/downloads)](https://packagist.org/packages/colorado-public-radio/pardot-api)
+[![License](https://poser.pugx.org/colorado-public-radio/pardot-api/license)](https://packagist.org/packages/colorado-public-radio/pardot-api)
 
 Author: [Andrew Mc Cormack](https://github.com/Andrew-Mc-Cormack)
+Updates: [Daniel J. Schneider](https://github.com/schneidan)
 
 ## Pardot API PHP Library
 
 A library to integrate with the Pardot API through PHP objects
 
-This library simplifies the process of authentication and querying the Pardot API and provides access to all of the v4 API features.
+This library simplifies the process of authentication and querying the Pardot API and provides access to all of the v4 API features. 
+
+Latest Version 2.0.0 supports Salesforce SSO authentication.
 
 ### Setup
 
-To initalise the Pardot API object pass your user email, password, and user key credentials.
+To initalise the Pardot API object pass your user email, password, client id, client secret and business unit id credentials.
 Any subsequent request to fetch data from the API will automatically perform the authentication actions before trying to fetch data.
 
 ```php
@@ -25,7 +28,9 @@ use CyberDuck\PardotApi\PardotApi;
 $pardot = new PardotApi(
     'EMAIL',
     'PASSWORD',
-    'USER_KEY'
+    'CLIENT_ID',
+    'CLIENT_SECRET',
+    'BUSINESS_UNIT_ID',
 );
 ```
 
