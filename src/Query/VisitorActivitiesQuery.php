@@ -2,6 +2,11 @@
 
 namespace CyberDuck\PardotApi\Query;
 
+use CyberDuck\PardotApi\Contract\QueryObject;
+use CyberDuck\PardotApi\Traits\CanQuery;
+use CyberDuck\PardotApi\Validator\DateValidator;
+use CyberDuck\PardotApi\Validator\PositiveIntValidator;
+
 /**
  * Visitor Activities object representation
  * 
@@ -16,5 +21,44 @@ namespace CyberDuck\PardotApi\Query;
  */
 class VisitorActivitiesQuery extends Query
 {
+	use CanQuery;
 
+    /**
+     * Object name
+     *
+     * @var string
+     */
+    protected $object = 'visitorActivity';
+
+    /**
+     * Returns an array of allowed query criteria and validators for the values
+     *
+     * @return array
+     */
+    public function getQueryCriteria(): array
+    {
+        return [
+            'created_after'           => new DateValidator,
+            'created_before'          => new DateValidator,
+            'id_greater_than'         => new PositiveIntValidator,
+            'id_less_than'			  => new PositiveIntValidator,
+            'updated_after'			  => new PositiveIntValidator,
+            'updated_before'		  => new PositiveIntValidator,
+            'type'					  => new PositiveIntValidator,
+        ];
+    } 
+
+    /**
+     * Returns an array of allowed query navigation params and validators for the values
+     *
+     * @return array
+     */
+    public function getQueryNavigation(): array
+    {
+        return [
+            'limit'           => new PositiveIntValidator,
+            'offset'          => new PositiveIntValidator,
+            'id_greater_than' => new PositiveIntValidator
+        ];
+    }
 }
