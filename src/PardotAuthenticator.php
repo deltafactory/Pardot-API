@@ -148,7 +148,7 @@ class PardotAuthenticator implements PardotAuthenticatorInterface
             $formatter = new $namespace((string) $this->response->getBody(), 'access_token');
 
             $this->success = true;
-            $this->accessToken = $formatter->getData()->access_token;
+            $this->accessToken = $formatter->getData()['access_token'];
         } catch(Exception $e) {
             if($this->api->getDebug() === true) {
                 echo $e->getMessage();

@@ -64,7 +64,7 @@
                 throw new Exception($this->formatBatchErrors($data));
             }
             // If this is a batch request, there's no return data... so just check if it's 'ok'
-            if (!empty($data[$this->property]) && $data["@attributes"]["stat"] !== "ok") {
+            if (empty($data[$this->property]) && $data["@attributes"]["stat"] !== "ok") {
                 throw new Exception(sprintf('Pardot API error: cannot find %s in response', $this->property));
             }
             return $data ?? true;
