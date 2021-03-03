@@ -193,7 +193,7 @@ $pardot->user()->readByEmail('name@example.com'); // queries an object by email
 ### Visitor Activities methods
 
 ```php
-// @todo
+$pardot->visitorActivity()->query([...]); // queries and returns a filtered list
 ```
 
 ### Visitors methods

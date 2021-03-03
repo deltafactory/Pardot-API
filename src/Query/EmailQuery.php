@@ -37,7 +37,7 @@ class EmailQuery extends Query
      *
      * @return \stdClass|null
      */
-    public function stats(int $id):? \stdClass
+    public function stats(int $id):? Array
     {
         return $this->setOperator(sprintf('stats/id/%s', $id))->request('stats');
     }

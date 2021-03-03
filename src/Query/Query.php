@@ -149,7 +149,7 @@ class Query
                 $namespace = $this->api->getFormatter();
                 $formatter = new $namespace((string) $response->getBody(), $property);
 
-                return $formatter->getData()->{$property};
+                return $formatter->getData()[$property];
             } catch(Exception $e) {
                 if($this->api->getDebug() === true) {
                     echo $e->getMessage();
