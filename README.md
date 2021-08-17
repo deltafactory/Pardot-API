@@ -135,7 +135,7 @@ $pardot->lifecycleStage()->query([...]); // queries and returns a filtered list
 ### List Memberships methods
 
 ```php
-// @todo
+$pardot->listMembership()->query([...]); // queries and returns a filtered list
 ```
 
 ### Lists methods
